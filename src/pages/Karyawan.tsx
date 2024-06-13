@@ -5,7 +5,7 @@ import api from "../utils/api";
 
 const Karyawan: React.FC = () => {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [karyawans, setKaryawans] = React.useState([]);
 
   React.useEffect(() => {
@@ -59,7 +59,7 @@ const Karyawan: React.FC = () => {
               </tr>
             ) : (
               karyawans.map((karyawan, index) => (
-                <tr>
+                <tr key={karyawan["id"]} className="border-b">
                   <td className="py-2 border-r">{(index += 1)}</td>
                   <td className="py-2 border-r">{karyawan["name"]}</td>
                   <td className="py-2 border-r">{karyawan["id_jabatan"]}</td>
