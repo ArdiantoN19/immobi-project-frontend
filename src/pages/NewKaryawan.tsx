@@ -172,6 +172,7 @@ const NewKaryawan: React.FC = () => {
           className="rounded border px-4 py-2.5 w-full border-slate-500"
           value={idJabatan}
           onChange={(e) => setIdJabatan(Number(e.target.value))}
+          disabled={!filteredJabatans.length}
         >
           {isLoading ? (
             <option>Loading...</option>
