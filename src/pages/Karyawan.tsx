@@ -7,6 +7,7 @@ const Karyawan: React.FC = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [karyawans, setKaryawans] = React.useState([]);
+  const [message, setMessage] = useState<string>("");
 
   React.useEffect(() => {
     (async () => {
@@ -16,12 +17,19 @@ const Karyawan: React.FC = () => {
     })();
   }, []);
 
-  const onDeleteHandler = (id: number) => {
+  const onDeleteHandler = async (id: number) => {
     const copyData = [...karyawans];
     const index = copyData.findIndex((karyawan) => karyawan["id"] === id);
-    if (index !== -1) {
-      copyData.splice(index, 1);
-      setKaryawans(copyData);
+
+    const result = await api.deleteKaryawan(id);
+    if (result.status === "success") {
+      setMessage("Success delete karyawan");
+      if (index !== -1) {
+        copyData.splice(index, 1);
+        setKaryawans(copyData);
+      }
+    } else {
+      setMessage(result.message);
     }
   };
 
@@ -34,6 +42,7 @@ const Karyawan: React.FC = () => {
         </div>
         <Button onClick={() => navigate("/karyawan/new")}>Create</Button>
       </div>
+      <p className="mb-5 text-red-500">{message}</p>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
