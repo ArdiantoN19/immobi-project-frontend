@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Karyawan from "../pages/Karyawan";
 import NewKaryawan from "../pages/NewKaryawan";
 import Department from "../pages/Department";
+import Jabatan from "../pages/Jabatan";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/department",
         element: <Department />,
+      },
+      {
+        path: "/jabatan",
+        element: <Jabatan />,
       },
     ],
   },

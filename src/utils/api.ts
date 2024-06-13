@@ -75,6 +75,22 @@ const api = (() => ({
       console.log("error");
     }
   },
+
+  async createJabatan(payload: any) {
+    try {
+      const response = await fetch(`${BASE_URL}/jabatans`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.log("error");
+    }
+  },
 }))();
 
 export default api;

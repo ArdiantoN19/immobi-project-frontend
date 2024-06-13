@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Button from "../components/ui/Button";
-import { useNavigate } from "react-router-dom";
 import api from "../utils/api";
 import useInputs from "../hooks/useInputs";
 
 const Department: React.FC = () => {
-  const navigate = useNavigate();
   const [message, setMessage] = useState<string>("");
 
   const [formData, onChangeFormData] = useInputs({
@@ -23,7 +21,6 @@ const Department: React.FC = () => {
     }
     const response = await api.createDepartment(payload);
     if (response.status === "success") {
-      navigate("/department");
       setMessage("Success add department");
     } else {
       setMessage(response.message);
