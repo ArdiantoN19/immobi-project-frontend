@@ -3,6 +3,7 @@ import RootLayouts from "../components/layouts/RootLayouts";
 import Home from "../pages/Home";
 import Karyawan from "../pages/Karyawan";
 import NewKaryawan from "../pages/NewKaryawan";
+import Department from "../pages/Department";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/karyawan/new",
         element: <NewKaryawan />,
+      },
+      {
+        path: "/department",
+        element: <Department />,
       },
     ],
   },
