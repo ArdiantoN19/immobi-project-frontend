@@ -91,6 +91,32 @@ const api = (() => ({
       console.log("error");
     }
   },
+
+  async getKaryawanById(id: number) {
+    try {
+      const response = await fetch(`${BASE_URL}/karyawans/${id}`);
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.log("error", error);
+    }
+  },
+
+  async updateKaryawan(id: number, payload: any) {
+    try {
+      const response = await fetch(`${BASE_URL}/karyawans/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.log("error", error);
+    }
+  },
 }))();
 
 export default api;

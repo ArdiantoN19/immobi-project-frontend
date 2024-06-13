@@ -5,6 +5,7 @@ import Karyawan from "../pages/Karyawan";
 import NewKaryawan from "../pages/NewKaryawan";
 import Department from "../pages/Department";
 import Jabatan from "../pages/Jabatan";
+import EditKaryawan from "../pages/EditKaryawan";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/karyawan/new",
         element: <NewKaryawan />,
+      },
+      {
+        path: "/karyawan/edit/:id",
+        element: <EditKaryawan />,
       },
       {
         path: "/department",

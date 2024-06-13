@@ -78,7 +78,13 @@ const Karyawan: React.FC = () => {
                   <td className="py-2 border-r">{karyawan["alamat"]}</td>
                   <td className="py-2 border-r">
                     <div className="flex items-center justify-center gap-2">
-                      <Button>Edit</Button>
+                      <Button
+                        onClick={() =>
+                          navigate(`/karyawan/edit/${karyawan["id"]}`)
+                        }
+                      >
+                        Edit
+                      </Button>
                       <Button onClick={() => onDeleteHandler(karyawan["id"])}>
                         Hapus
                       </Button>

@@ -10,7 +10,7 @@ const useInputs = (defaultValue: any) => {
       [name]: value,
     });
   };
-  return [inputs, onChange];
+  return [inputs, onChange, setInputs];
 };
 
 export default useInputs;
